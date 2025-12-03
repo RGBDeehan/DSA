@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+int main()
+{
+    int vertex, edge;
+    printf("Enter number of vertex: ");
+    scanf("%d", &vertex);
+    printf("Enter number of edge: ");
+    scanf("%d", &edge);
+
+    int array_matrix[vertex + 1][vertex + 1];
+
+    printf("Enter Vertex & Edge: ");
+
+    for (int i = 1; i <= vertex; i++)
+    {
+        for (int j = 1; j <= vertex; j++)
+        {
+            array_matrix[i][j] = 0;
+        }
+    }
+
+    for (int i = 0; i < edge; i++)
+    {
+        int u, v;
+        scanf("%d %d", &u, &v);
+        
+            array_matrix[u][v] = 1;
+        
+    }
+
+    printf("THE Matrix is:\n");
+    for (int i = 1; i <= vertex; i++)
+    {
+        for (int j = 1; j <= vertex; j++)
+        {
+            printf("%d ", array_matrix[i][j]);
+        }
+        printf("\n");
+    }
+
+    
+
+
+    int indegree = 0, outdegree = 0;
+    
+    for (int i = 0; i <= edge; i++)
+    {
+        for (int j = 0; j <= edge; j++)
+        {
+            if (array_matrix[i][j] == 1)
+            indegree++;
+        else if(array_matrix[j][i] == 1)
+            outdegree++;
+        }
+    }
+
+    
+
+    return 0;
+}
